@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>{{ ctx_title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ ctx_form.as_p }}
+        <a href="{{ ctx_link.link }}">{{ ctx_link.text }}</a>
+        <input type="submit" value="{{ ctx_action }}">
+    </form>
+    {% if ctx_error == "Success!" %}
+        <p class="success">{{ ctx_error }}</p>
+    {% else %}
+        <p class="error">{{ ctx_error }}</p>
+    {% endif %}
+</body>
+</html>

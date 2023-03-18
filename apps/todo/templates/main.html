@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>{{ ctx_title }}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <a href="logout" class="quit">QUIT</a>
+    <div class="container">
+        {% for task in ctx_tasks %}
+            <div class="task" title="{{ task.description }}">
+                <div class="line1">
+                    <p class="name">{{ task.title }}</p>
+                </div>
+                <div class="line2">
+                    <a href="task/delete/{{ task.id }}"><button class="delete">Delete</button></a>
+                    {% if task.progress == 0 %}
+                        <a href="task/update-status/{{ task.id }}"><button class="to_do">To Do</button></a>
+                    {% else %}
+                        <a href="task/update-status/{{ task.id }}"><button class="done">Done</button></a>
+                    {% endif %}
+                    <a href="task/description/{{ task.id }}" target="_blank"><button class="description">Descrip-n</button></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ ctx_form.as_div }}
+        <input type="submit" value="Create Task">
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+body {
+    background: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form p {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+form input {
+    margin-left: 20px;
+    width: 100%;
+    outline: none;
+}
+.error {
+    color: red;
+}
+a {
+    text-decoration: underline;
+    color: blue;
+    margin-bottom: 15px;
+}
+.success {
+    color: green;
+}

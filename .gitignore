@@ -1,0 +1,6 @@
+# environment
+.env
+todo_env
+
+# database
+.sqlite3
